@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34f52c7b42094990ae72f1668f02dd5b" Name="Diagram1">
+        <EntityTypeShape EntityType="DiplomaModel.Basket" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomaModel.CategoryProducts" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomaModel.Client" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomaModel.Dish" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomaModel.Order" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomaModel.Products" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomaModel.Restaurants" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DiplomaModel.FK__Basket__IdOrder__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomaModel.FK__Dish__IdCategory__0DAF0CB0" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomaModel.FK__Order__IdClient__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomaModel.FK__Dish__IdRestaura__0CBAE877" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomaModel.Dish_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomaModel.Order_Dish" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

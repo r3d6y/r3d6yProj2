@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DiplomaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="IdBasket" />
+          </Key>
+          <Property Name="IdBasket" Type="int" Nullable="false" />
+          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoryProducts">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="TitleCategory" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Mail" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dish">
+          <Key>
+            <PropertyRef Name="IdDish" />
+          </Key>
+          <Property Name="IdDish" Type="int" Nullable="false" />
+          <Property Name="IdRestaurant" Type="int" Nullable="false" />
+          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="NameDish" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Weight" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Price" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Diploma.dbo.Dish_Product" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Dish_Product">
+          <Key>
+            <PropertyRef Name="IdDish" />
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdDish" Type="int" Nullable="false" />
+          <Property Name="IdProduct" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+          </Key>
+          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="DateOrder" Type="datetime" Nullable="false" />
+          <Property Name="DateDelivery" Type="datetime" Nullable="false" />
+          <Property Name="AddressDelivery" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Payment" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Implementation" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Diploma.dbo.Order_Dish" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Order_Dish">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+            <PropertyRef Name="IdDish" />
+          </Key>
+          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="IdDish" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="IdProducts" />
+          </Key>
+          <Property Name="IdProducts" Type="int" Nullable="false" />
+          <Property Name="NameProduct" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Weight" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Restaurants">
+          <Key>
+            <PropertyRef Name="IdRestaurant" />
+          </Key>
+          <Property Name="IdRestaurant" Type="int" Nullable="false" />
+          <Property Name="TitleRestaurant" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Basket__IdOrder__20C1E124">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="IdOrder" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dish__IdCategory__0DAF0CB0">
+          <End Role="CategoryProducts" Type="Self.CategoryProducts" Multiplicity="1" />
+          <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryProducts">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Dish">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dish__IdRestaura__0CBAE877">
+          <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="1" />
+          <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="IdRestaurant" />
+            </Principal>
+            <Dependent Role="Dish">
+              <PropertyRef Name="IdRestaurant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dish_Prod__IdDis__0F975522">
+          <End Role="Dish" Type="Self.Dish" Multiplicity="1" />
+          <End Role="Dish_Product" Type="Self.Dish_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dish">
+              <PropertyRef Name="IdDish" />
+            </Principal>
+            <Dependent Role="Dish_Product">
+              <PropertyRef Name="IdDish" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dish_Prod__IdPro__108B795B">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Dish_Product" Type="Self.Dish_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="IdProducts" />
+            </Principal>
+            <Dependent Role="Dish_Product">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__IdClient__1920BF5C">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Dis__IdDis__1BFD2C07">
+          <End Role="Dish" Type="Self.Dish" Multiplicity="1" />
+          <End Role="Order_Dish" Type="Self.Order_Dish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dish">
+              <PropertyRef Name="IdDish" />
+            </Principal>
+            <Dependent Role="Order_Dish">
+              <PropertyRef Name="IdDish" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Dis__IdOrd__1B0907CE">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Order_Dish" Type="Self.Order_Dish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="IdOrder" />
+            </Principal>
+            <Dependent Role="Order_Dish">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DiplomaModelContainer">
+          <EntitySet Name="Basket" EntityType="Self.Basket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryProducts" EntityType="Self.CategoryProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dish" EntityType="Self.Dish" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dish_Product" EntityType="Self.Dish_Product" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Dish_Product].[IdDish] AS [IdDish], 
+    [Dish_Product].[IdProduct] AS [IdProduct]
+    FROM [dbo].[Dish_Product] AS [Dish_Product]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Order_Dish" EntityType="Self.Order_Dish" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Order_Dish].[IdOrder] AS [IdOrder], 
+    [Order_Dish].[IdDish] AS [IdDish]
+    FROM [dbo].[Order_Dish] AS [Order_Dish]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Basket__IdOrder__20C1E124" Association="Self.FK__Basket__IdOrder__20C1E124">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dish__IdCategory__0DAF0CB0" Association="Self.FK__Dish__IdCategory__0DAF0CB0">
+            <End Role="CategoryProducts" EntitySet="CategoryProducts" />
+            <End Role="Dish" EntitySet="Dish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dish__IdRestaura__0CBAE877" Association="Self.FK__Dish__IdRestaura__0CBAE877">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Dish" EntitySet="Dish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dish_Prod__IdDis__0F975522" Association="Self.FK__Dish_Prod__IdDis__0F975522">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="Dish_Product" EntitySet="Dish_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dish_Prod__IdPro__108B795B" Association="Self.FK__Dish_Prod__IdPro__108B795B">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Dish_Product" EntitySet="Dish_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__IdClient__1920BF5C" Association="Self.FK__Order__IdClient__1920BF5C">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Dis__IdDis__1BFD2C07" Association="Self.FK__Order_Dis__IdDis__1BFD2C07">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="Order_Dish" EntitySet="Order_Dish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Dis__IdOrd__1B0907CE" Association="Self.FK__Order_Dis__IdOrd__1B0907CE">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Order_Dish" EntitySet="Order_Dish" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DiplomaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="IdBasket" />
+          </Key>
+          <Property Name="IdBasket" Type="Int32" Nullable="false" />
+          <Property Name="IdOrder" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__Basket__IdOrder__20C1E124" FromRole="Basket" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="CategoryProducts">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="TitleCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dish" Relationship="Self.FK__Dish__IdCategory__0DAF0CB0" FromRole="CategoryProducts" ToRole="Dish" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__Order__IdClient__1920BF5C" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Dish">
+          <Key>
+            <PropertyRef Name="IdDish" />
+          </Key>
+          <Property Name="IdDish" Type="Int32" Nullable="false" />
+          <Property Name="IdRestaurant" Type="Int32" Nullable="false" />
+          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="NameDish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Weight" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CategoryProducts" Relationship="Self.FK__Dish__IdCategory__0DAF0CB0" FromRole="Dish" ToRole="CategoryProducts" />
+          <NavigationProperty Name="Restaurants" Relationship="Self.FK__Dish__IdRestaura__0CBAE877" FromRole="Dish" ToRole="Restaurants" />
+          <NavigationProperty Name="Products" Relationship="Self.Dish_Product" FromRole="Dish" ToRole="Products" />
+          <NavigationProperty Name="Order" Relationship="Self.Order_Dish" FromRole="Dish" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+          </Key>
+          <Property Name="IdOrder" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateDelivery" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddressDelivery" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Payment" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Implementation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Basket" Relationship="Self.FK__Basket__IdOrder__20C1E124" FromRole="Order" ToRole="Basket" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Order__IdClient__1920BF5C" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Dish" Relationship="Self.Order_Dish" FromRole="Order" ToRole="Dish" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="IdProducts" />
+          </Key>
+          <Property Name="IdProducts" Type="Int32" Nullable="false" />
+          <Property Name="NameProduct" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Weight" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dish" Relationship="Self.Dish_Product" FromRole="Products" ToRole="Dish" />
+        </EntityType>
+        <EntityType Name="Restaurants">
+          <Key>
+            <PropertyRef Name="IdRestaurant" />
+          </Key>
+          <Property Name="IdRestaurant" Type="Int32" Nullable="false" />
+          <Property Name="TitleRestaurant" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dish" Relationship="Self.FK__Dish__IdRestaura__0CBAE877" FromRole="Restaurants" ToRole="Dish" />
+        </EntityType>
+        <Association Name="FK__Basket__IdOrder__20C1E124">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="IdOrder" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dish__IdCategory__0DAF0CB0">
+          <End Role="CategoryProducts" Type="Self.CategoryProducts" Multiplicity="1" />
+          <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryProducts">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Dish">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__IdClient__1920BF5C">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dish__IdRestaura__0CBAE877">
+          <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="1" />
+          <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="IdRestaurant" />
+            </Principal>
+            <Dependent Role="Dish">
+              <PropertyRef Name="IdRestaurant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Dish_Product">
+          <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        </Association>
+        <Association Name="Order_Dish">
+          <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DiplomaDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Basket" EntityType="Self.Basket" />
+          <EntitySet Name="CategoryProducts" EntityType="Self.CategoryProducts" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Dish" EntityType="Self.Dish" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="Restaurants" EntityType="Self.Restaurants" />
+          <AssociationSet Name="FK__Basket__IdOrder__20C1E124" Association="Self.FK__Basket__IdOrder__20C1E124">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dish__IdCategory__0DAF0CB0" Association="Self.FK__Dish__IdCategory__0DAF0CB0">
+            <End Role="CategoryProducts" EntitySet="CategoryProducts" />
+            <End Role="Dish" EntitySet="Dish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__IdClient__1920BF5C" Association="Self.FK__Order__IdClient__1920BF5C">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dish__IdRestaura__0CBAE877" Association="Self.FK__Dish__IdRestaura__0CBAE877">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Dish" EntitySet="Dish" />
+          </AssociationSet>
+          <AssociationSet Name="Dish_Product" Association="Self.Dish_Product">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="Order_Dish" Association="Self.Order_Dish">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DiplomaModelContainer" CdmEntityContainer="DiplomaDBContext">
+          <EntitySetMapping Name="Basket">
+            <EntityTypeMapping TypeName="DiplomaModel.Basket">
+              <MappingFragment StoreEntitySet="Basket">
+                <ScalarProperty Name="IdBasket" ColumnName="IdBasket" />
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryProducts">
+            <EntityTypeMapping TypeName="DiplomaModel.CategoryProducts">
+              <MappingFragment StoreEntitySet="CategoryProducts">
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="TitleCategory" ColumnName="TitleCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="DiplomaModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dish">
+            <EntityTypeMapping TypeName="DiplomaModel.Dish">
+              <MappingFragment StoreEntitySet="Dish">
+                <ScalarProperty Name="IdDish" ColumnName="IdDish" />
+                <ScalarProperty Name="IdRestaurant" ColumnName="IdRestaurant" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="NameDish" ColumnName="NameDish" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="DiplomaModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+                <ScalarProperty Name="DateDelivery" ColumnName="DateDelivery" />
+                <ScalarProperty Name="AddressDelivery" ColumnName="AddressDelivery" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DiplomaModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IdProducts" ColumnName="IdProducts" />
+                <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="DiplomaModel.Restaurants">
+              <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="IdRestaurant" ColumnName="IdRestaurant" />
+                <ScalarProperty Name="TitleRestaurant" ColumnName="TitleRestaurant" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Dish_Product" TypeName="DiplomaModel.Dish_Product" StoreEntitySet="Dish_Product">
+            <EndProperty Name="Dish">
+              <ScalarProperty Name="IdDish" ColumnName="IdDish" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="IdProducts" ColumnName="IdProduct" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Order_Dish" TypeName="DiplomaModel.Order_Dish" StoreEntitySet="Order_Dish">
+            <EndProperty Name="Dish">
+              <ScalarProperty Name="IdDish" ColumnName="IdDish" />
+            </EndProperty>
+            <EndProperty Name="Order">
+              <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
