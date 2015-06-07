@@ -2,15 +2,133 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="~/Content/css/fullscreen.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery.fullPage.css" rel="stylesheet" />
+    <link href="~/Content/css/normalize.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Miltonian|Bitter" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/js/bPopup.js"></script>
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/js/modernizr.custom.21750.js"></script>
+    <script src="~/Scripts/js/StackBlur.js"></script>
+    <script src="~/Scripts/js/jquery.fullPage.min.js"></script>
+    <script src="~/Scripts/js/init.js"></script>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
-    @RenderBody()
+    <div class="wrapper">
+        <header id="header">
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+            <div id="element_to_pop_up" class="enter_pop_up">
+                <a class="b-close">
+                </a>
+                <div class="pop_up_header">
+                    <p>Авторизация</p>
+                </div>
+                <div class="pop_up_padding avtorization">
+                    <div class="enter_input">
+                        <img src="~/Content/img/user_reg.png" />
+                        <div class="input_margin">
+                            <input />
+                        </div>
+                    </div>
+                    <div class="enter_input">
+                        <img src="~/Content/img/pass.png" />
+                        <div class="input_margin">
+                            <input />
+                        </div>
+                    </div>
+                    <div class="pop_up_link fl">
+                        <a href="">Забыли пароль?</a>
+                        <a href="@Url.Action("Registration", "User")">Регистрация</a>
+                    </div>
+                    <div class="clear"></div>
+                    <button>Войти</button>
+                </div>
+            </div>
+
+            <div class="menu_wrap">
+                <div class="center">
+                    <nav>
+                        <ul id="menu" class="menu fl">
+                            <li class="active"><a href="#">Главная</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li class=""><a href="#">Рестораны</a></li>
+                            <li><a href="#">Специальные предложения</a></li>
+                        </ul>
+                    </nav>
+                    <ul class="menu_users fr">
+                        <li><a href="" id="my-button"><span class="user"></span>Личный кабинет</a></li>
+                        <li><a href=""><span class="basket"></span>Корзина пуста</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        </div>
+        <footer class="footer">
+            <div class="center_cont">
+                <div class="item fl">
+                    <div class="t_center">
+                        <p class="title">Доставка</p>
+                    </div>
+                    <div class="marker_grey"><p>Доставка бесплатно</p></div>
+                    <div style="margin-top: 20px; margin-bottom: 20px;">
+                        <p>Минимальный заказ 100 грн.</p>
+                    </div>
+
+                    <p>Действует доставка в пригород </p>
+                    <p>Днепропетровска. Детали у оператора</p>
+
+                    <div class="social">
+                        <a href="" class="in"></a>
+                        <a href="" class="tw"></a>
+                        <a href="" class="fb"></a>
+                    </div>
+                </div>
+                <div class="item fl">
+                    <div class="t_center">
+                        <p class="title">Как заказать?</p>
+                    </div>
+                    <span class="ico_phone_white fl"></span>
+                    <p>
+                        +380 63 345 67 89 <br />
+                        +380 56 345 60 80<br />
+                        +380 99 453 61 81
+                    </p>
+                    <span class="cont_mail fl"></span>
+                    <a href="">restaurant_home.ua</a>
+
+                </div>
+                <div class="item fl">
+                    <div class="t_center">
+                        <p class="title">Как оплатить?</p>
+                    </div>
+                    <div class="payment">
+                        <span class="ico_visa fl"></span>
+                        <p>Платёжная система<br /> VisaMasterCadr</p>
+                    </div>
+
+                    <div class="payment">
+                        <span class="ico_webmoney fl"></span>
+                        <p>C помощью сервиса <br /> WebMoney</p>
+                    </div>
+
+                    <div class="payment">
+                        <span class="ico_courier fl"></span>
+                        <p>Наличными курьеру <br />при получении заказа</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        @*@Scripts.Render("~/bundles/jquery")*@
+        @*@RenderSection("scripts", required: false)*@
 </body>
 </html>
