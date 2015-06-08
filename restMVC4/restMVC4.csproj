@@ -283,6 +283,8 @@
     <Content Include="Content\img\news_1.jpg" />
     <Content Include="Content\img\news_2.jpg" />
     <Content Include="Content\img\news_3.jpg" />
+    <Content Include="Content\img\news_head.jpg" />
+    <Content Include="Content\img\onenews_head.jpg" />
     <Content Include="Content\img\pass.png" />
     <Content Include="Content\img\phone.png" />
     <Content Include="Content\img\phone_white.png" />
@@ -298,6 +300,7 @@
     <Content Include="Content\img\search.png" />
     <Content Include="Content\img\separator.png" />
     <Content Include="Content\img\social.png" />
+    <Content Include="Content\img\specialoffer_head.jpg" />
     <Content Include="Content\img\sushi.png" />
     <Content Include="Content\img\user.png" />
     <Content Include="Content\img\user_reg.png" />

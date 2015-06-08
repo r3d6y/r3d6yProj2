@@ -3,29 +3,39 @@
 @{
     ViewBag.Title = "Registration";
 }
-<div class="dishes_head"></div>
-<h2>Registration</h2>
+<div class="wrapper">
+    <div class="specialoffer_head"></div>
+    <div class="center_cont center_cont_marg">
 
-@using (Html.BeginForm())
-{
-    <div>
-        <div><p>name</p></div>
-        <div>@Html.TextBoxFor(x => x.Name)</div>
+        <h3>Регистрация</h3>
+        <div class="separator"></div>
+        <div class="reg">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <div><p>Имя</p></div>
+                    <div>@Html.TextBoxFor(x => x.Name)</div>
 
-        <div><p>patronymic</p></div>
-        <div>@Html.TextBoxFor(x => x.Patronymic)</div>
+                    <div><p>Отчество</p></div>
+                    <div>@Html.TextBoxFor(x => x.Patronymic)</div>
 
-        <div><p>surname</p></div>
-        <div>@Html.TextBoxFor(x => x.SurName)</div>
+                    <div><p>Фамилия</p></div>
+                    <div>@Html.TextBoxFor(x => x.SurName)</div>
 
-        <div><p>email</p></div>
-        <div>@Html.TextBoxFor(x => x.Mail)</div>
+                    <div><p>e-mail</p></div>
+                    <div>@Html.TextBoxFor(x => x.Mail)</div>
 
-        <div><p>password</p></div>
-        <div>@Html.TextBoxFor(x => x.Password)</div>
+                    <div><p>Пароль</p></div>
+                    <div>@Html.TextBoxFor(x => x.Password)</div>
 
-        <div><p>phone</p></div>
-        <div>@Html.TextBoxFor(x => x.Phone)</div>
+                    <div><p>Телефон</p></div>
+                    <div>@Html.TextBoxFor(x => x.Phone)</div>
+                </div>
+                <input type="submit" class="button" />
+            }
+
+        </div>
+
+        </div>
     </div>
-    <input type="submit" />
-}
+       
