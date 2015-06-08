@@ -51,6 +51,11 @@ namespace restMVC4.Controllers
         {
             return View();
         }
+
+        public ActionResult Order()
+        {
+            return View();
+        }
         
 
     }

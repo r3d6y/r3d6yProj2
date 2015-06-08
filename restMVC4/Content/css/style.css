@@ -748,6 +748,12 @@ input[type="checkbox"]:checked + label::before {
 	background: rgba(0, 0, 0, 0) url("../img/specialoffer_head.jpg") repeat scroll center center;
 }
 
+.order_head{
+	width: 100%;
+	height: 202px;
+	background: rgba(0, 0, 0, 0) url("../img/order_head.jpg") repeat scroll center center;
+}
+
 
 .menu_filter{
 	margin-right: 60px;
@@ -1137,14 +1143,19 @@ input[type="checkbox"]:checked + label::before {
 	margin-right: 5px;
 }
 
-.basket_result .discount_block{
+.discount_block{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.basket_result p.title{
+.discount_block p.title{
     font-size: 22px;
     font-weight: bold;
+}
+
+.discount_block p{
+    color: #555555;
+    font-size: 16px;
 }
 
 .basket_result .button{
@@ -1332,4 +1343,54 @@ input[type="checkbox"]:checked + label::before {
 .reg input.button{
     margin-top: 10px;
     color: #fff;
+}
+/*-----------------------------------------------------------------------------*/
+
+.order_form{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.order_form .item p{
+    font-size: 16px;
+    color: #656565;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.order_form .item p.title{
+    margin-bottom: 0;
+    color: #800d0e;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.order_form .item input{
+    border: 2px solid #800d0e;
+}
+
+.order_form .item.small input{
+    width: 100px;
+    margin-right: 10px;
+}
+
+.order_form .result{
+    font-size: 22px;
+    font-weight: bold;
+    color: #555555;
+    margin-top: 20px;
+}
+
+.right_form{
+    margin-left: 30px;
+    width: 540px;
+}
+
+.right_form .button_block{
+    margin-top: 30px;
+}
+
+.right_form .discount_block{
+    margin-top: 20px;
 }

@@ -285,6 +285,7 @@
     <Content Include="Content\img\news_3.jpg" />
     <Content Include="Content\img\news_head.jpg" />
     <Content Include="Content\img\onenews_head.jpg" />
+    <Content Include="Content\img\order_head.jpg" />
     <Content Include="Content\img\pass.png" />
     <Content Include="Content\img\phone.png" />
     <Content Include="Content\img\phone_white.png" />
@@ -432,6 +433,7 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\OneNews.cshtml" />
     <Content Include="Views\Home\SpecialOffer.cshtml" />
+    <Content Include="Views\Home\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
