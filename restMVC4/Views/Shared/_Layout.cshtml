@@ -55,15 +55,15 @@
             <div class="center">
                 <nav>
                     <ul id="menu" class="menu fl">
-                        <li class="active"><a href="#">Главная</a></li>
+                        <li class="active"><a href="@Url.Action("Index", "Home")">Главная</a></li>
                         <li><a href="#">Новости</a></li>
-                        <li class=""><a href="#">Рестораны</a></li>
+                        <li class=""><a href="@Url.Action("Restaurants", "Home")">Рестораны</a></li>
                         <li><a href="#">Специальные предложения</a></li>
                     </ul>
                 </nav>
                 <ul class="menu_users fr">
                     <li><a href="" id="my-button"><span class="user"></span>Личный кабинет</a></li>
-                    <li><a href=""><span class="basket"></span>Корзина пуста</a></li>
+                    <li><a href="@Url.Action("Basket", "Home")"><span class="basket"></span>Корзина пуста</a></li>
                 </ul>
             </div>
         </div>
