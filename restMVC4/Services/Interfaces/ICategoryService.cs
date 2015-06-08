@@ -9,5 +9,6 @@ namespace restMVC4.Services.Interfaces
     public interface ICategoryService
     {
         IEnumerable<CategoryProducts> GetCategories();
+        void AddCategory(CategoryModel model);
     }
 }

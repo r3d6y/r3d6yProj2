@@ -87,8 +87,23 @@ namespace restMVC4.Controllers
         [HttpGet]
         public ActionResult ManageCategory()
         {
-            List<CategoryModel> model;
+            List<CategoryModel> model = services.CategoryService.GetCategories().Select(x => new CategoryModel(x)).ToList();
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult AddNewCategory()
+        {
             return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddNewCategory(CategoryModel model)
+        {
+            services.CategoryService.AddCategory(model);
+            return RedirectToAction("ManageCategory", "Administrator");
         }
     }
 }

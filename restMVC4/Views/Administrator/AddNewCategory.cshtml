@@ -1,0 +1,16 @@
+﻿@model restMVC4.Models.CategoryModel
+
+@{
+    ViewBag.Title = "AddNewCategory";
+}
+
+<div class="dishes_head"></div>
+<h2>AddNewCategory</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <div><p>title</p></div>
+        <div>@Html.TextBoxFor(x => x.Title)</div>
+    </div>
+    <input type="submit" />
+}

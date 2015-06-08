@@ -16,6 +16,7 @@ namespace restMVC4.Services
         private IClientService clientService;
         private IRestaurantService restService;
         private IDishService dishService;
+        private ICategoryService categoryService;
 
         public IClientService ClientService
         {
@@ -38,6 +39,14 @@ namespace restMVC4.Services
             get
             {
                 return dishService = dishService ?? new DishService();
+            }
+        }
+
+        public ICategoryService CategoryService
+        {
+            get
+            {
+                return categoryService = categoryService ?? new CategoryService();
             }
         }
     }
