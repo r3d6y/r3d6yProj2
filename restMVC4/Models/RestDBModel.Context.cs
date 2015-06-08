@@ -32,5 +32,6 @@ namespace restMVC4.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Restaurants> Restaurants { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

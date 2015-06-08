@@ -12,23 +12,12 @@ namespace restMVC4.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class sysdiagrams
     {
-        public Client()
-        {
-            this.Order = new HashSet<Order>();
-        }
-    
-        public int IdClient { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Phone { get; set; }
-        public string Mail { get; set; }
-        public string Password { get; set; }
-        public string PasswordSalt { get; set; }
-        public Nullable<bool> IsAdmin { get; set; }
-    
-        public virtual ICollection<Order> Order { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

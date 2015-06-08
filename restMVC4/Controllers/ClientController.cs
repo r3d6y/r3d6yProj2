@@ -1,4 +1,6 @@
-﻿using restMVC4.Models;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using restMVC4.Models;
 using SimpleCrypto;
 using System;
 using System.Collections.Generic;
@@ -40,6 +42,39 @@ namespace restMVC4.Controllers
             return RedirectToAction("Index", "Home");//View("Index", "Home");
         }
 
+        [HttpPost]
+        public ActionResult LoginAjax(string email, string password)
+        {
+            //JavaScriptSerializer js = new JavaScriptSerializer();
+            //var model = js.Deserialize<LoginJsonMode>(data);
+            if (IsValid(email, password))
+            {
+                FormsAuthentication.SetAuthCookie(email, false);
+                ViewBag.UserName = email;
+                //return RedirectToAction("Index", "Home");
+                var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+                var JsonResult = new ContentResult
+                {
+                    Content = JsonConvert.SerializeObject(true, settings),
+                    ContentType = "application/json"
+                };
+                return JsonResult;
+            }
+            else
+            {
+                ModelState.AddModelError("", "Login data is incorrect.");
+                var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+                var JsonResult = new ContentResult
+                {
+                    Content = JsonConvert.SerializeObject(false, settings),
+                    ContentType = "application/json"
+                };
+                return JsonResult;
+                //return RedirectToAction("Index", "Home");
+            }
+            //return RedirectToAction("Index", "Home");
+        }
+
         [HttpGet]
         public ActionResult Registration()
         {
@@ -79,6 +114,7 @@ namespace restMVC4.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
+            Session["UserName"] = null;
             return RedirectToAction("Index", "Home");
         }
         private bool IsValid(string email, string password)
@@ -91,6 +127,7 @@ namespace restMVC4.Controllers
             {
                 if (user.Password == crypto.Compute(password, user.PasswordSalt))
                     isValid = true;
+                Session["UserName"] = user.Mail;
             }
 
             return isValid;

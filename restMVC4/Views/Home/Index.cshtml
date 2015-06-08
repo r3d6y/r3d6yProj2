@@ -1,4 +1,353 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="~/Content/css/fullscreen.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery.fullPage.css" rel="stylesheet" />
+    <link href="~/Content/css/normalize.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Miltonian|Bitter" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/js/bPopup.js"></script>
+    <script src="~/Scripts/js/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/js/modernizr.custom.21750.js"></script>
+    <script src="~/Scripts/js/StackBlur.js"></script>
+    <script src="~/Scripts/js/jquery.fullPage.min.js"></script>
+    <script src="~/Scripts/js/init.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header id="header">
+
+            <div id="element_to_pop_up" class="enter_pop_up">
+                <a class="b-close">
+                </a>
+                <div class="pop_up_header">
+                    <p>Авторизация</p>
+                </div>
+                <div class="pop_up_padding avtorization">
+                    <div class="enter_input">
+                        <img src="~/Content/img/user_reg.png" />
+                        <div class="input_margin">
+                            <input />
+                        </div>
+                    </div>
+                    <div class="enter_input">
+                        <img src="~/Content/img/pass.png" />
+                        <div class="input_margin">
+                            <input />
+                        </div>
+                    </div>
+                    <div class="pop_up_link fl">
+                        <a href="">Забыли пароль?</a>
+                        <a href="@Url.Action("Registration", "User")">Регистрация</a>
+                    </div>
+                    <div class="clear"></div>
+                    <button>Войти</button>
+                </div>
+            </div>
+
+            <div class="menu_wrap">
+                <div class="center">
+                    <nav>
+                        <ul id="menu" class="menu fl">
+                            <li class="active"><a href="#">Главная</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li class=""><a href="#">Рестораны</a></li>
+                            <li><a href="#">Специальные предложения</a></li>
+                        </ul>
+                    </nav>
+                    <ul class="menu_users fr">
+                        <li><a href="" id="my-button"><span class="user"></span>Личный кабинет</a></li>
+                        <li><a href=""><span class="basket"></span>Корзина пуста</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div id="fullpage">
+            <div class="section" id="section0">
+                <div class="container">
+                    <div id="bx-wrapper" class="bx-wrapper">
+                        <div class="bx-loading">
+                            <span>Загрузка...</span>
+                        </div>
+                        <div class="bx-content">
+                            <h2>Европейская кухня</h2>
+                            <div class="page_title_red">Лучшие предложения</div>
+                        </div>
+
+                        <div class="bx-thumbs">
+                            <a href="#" class="bx-thumbs-current" style="background-image:url(images/thumbs/7.jpg)"></a>
+                            <a href="#" style="background-image:url(images/thumbs/6.jpg)"></a>
+                            <a href="#" style="background-image:url(images/thumbs/5.jpg)"></a>
+                            <a href="#" style="background-image:url(images/thumbs/4.jpg)"></a>
+                            <a href="#" style="background-image:url(images/thumbs/3.jpg)"></a>
+                            <a href="#" style="background-image:url(images/thumbs/2.jpg)"></a>
+                            <a href="#" style="background-image:url(images/thumbs/1.jpg)"></a>
+                        </div>
+                        <div class="bx-container">
+                            <img src="~/Content/images/large/7.jpg" alt="image07" title="Европейская кухня" />
+                            <img src="~/Content/images/large/6.jpg" alt="image06" title="Итальянская кухня" />
+                            <img src="~/Content/images/large/5.jpg" alt="image05" title="Японская кухня" />
+                            <img src="~/Content/images/large/4.jpg" alt="image04" title="Европейская кухня" />
+                            <img src="~/Content/images/large/3.jpg" alt="image03" title="Итальянская кухня" />
+                            <img src="~/Content/images/large/2.jpg" alt="image02" title="Европейская кухня" />
+                            <img src="~/Content/images/large/1.jpg" alt="image01" title="Японская кухня" />
+                        </div>
+                        <div class="bx-overlay"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section1">
+                <div class="intro">
+                    <div class="block_top">
+                        <h2>Рестораны</h2>
+                        <p>Сотни блюд из лучших ресторанов Днепропетровска.</p>
+                        <p>Доставка прямо домой или офис.</p>
+                    </div>
+                    <div class="block_content">
+                        <div class="bottom_bg" style="background: url('../../Content/img/bottom_1.jpg') no-repeat center bottom / 100% auto;">
+                            <!--ВСТАВИТЬ-->				<ul class="rest_filter">
+                                <li><a href=""><span class="all_rest"></span></a><p>Все рестораны</p></li>
+                                <li><a href=""><span class="burger"></span></a><p>Бургер</p></li>
+                                <li><a href=""><span class="pizza"></span></a><p>Пицца</p></li>
+                                <li><a href=""><span class="sushi"></span></a><p>Суши</p></li>
+                                <li><a href=""><span class="lanch"></span></a><p>Бизнес-ланч</p></li>
+                                <li><a href=""><span class="dessert"></span></a><p>Десерт</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section2">
+                <div class="block_top">
+                    <h2>Специальные предложения</h2>
+                    <div class="page_title_red">Просмотреть все предложения</div>
+                </div>
+                <div style="height: 60%; top: 40%; position: absolute; width: 100%;" class="block_content">
+                    <div class="proposite_wrap">
+                        <div class="proposite_item proposite_item_1">
+                            <a href="#" class="proposite_item_link">
+                                <span class="proposite_item_content">
+                                    <span class="proposite_item_title"><b>Алкогольные напитки</b> <span>Заказывайте брендовые алкогольные напитки со скидками!</span></span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="proposite_item proposite_item_2">
+                            <a href="#" class="proposite_item_link">
+                                <span class="proposite_item_content">
+                                    <span class="proposite_item_title">
+                                        <b>Ролл в подарок</b> <span>
+                                            Карибский ролл в подарок
+                                            к заказу на сумму от 250 грн!
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="proposite_item proposite_item_3">
+                            <a href="#" class="proposite_item_link">
+                                <span class="proposite_item_content">
+                                    <span class="proposite_item_title"><b>Вторая пицца в подарок</b> <span>Заказывайте ночью с 02:00 до 08:00 и получайте каждую вторую пиццу в подарок. </span></span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="proposite_item proposite_item_4">
+                            <a href="#" class="proposite_item_link">
+                                <span class="proposite_item_content">
+                                    <span class="proposite_item_title"><b>Чай в подарок</b> <span>Купи завтрак с 8:00 до 12:00 и получи чай в подарок!</span></span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="proposite_item proposite_item_5">
+                            <a href="#" class="proposite_item_link">
+                                <span class="proposite_item_content">
+                                    <span class="proposite_item_title"><b>Подарок в День рождение</b> <span>Скидка 10% на все меню для именинников в течение семи дней до или после знаменательной даты!</span></span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="proposite_item proposite_item_6">
+                            <a href="#" class="proposite_item_link">
+                                <span class="proposite_item_content">
+                                    <span class="proposite_item_title"><b>Десерт в подарок</b> <span>Заказывайте на сумму от 300 грн - получайте десерт на выбор в подарок!</span></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section3">
+                <div class="news_wrap">
+                    <div class="block_top">
+                        <h2>Новости</h2>
+                    </div>
+                    <div class="block_content">
+                        <div class="news_item_wrap">
+                            <div class="news_item">
+                                <div class="news_item_date">май 24, 2015</div>
+                                <div class="news_item_content">
+                                    <div class="news_item_img">
+                                        <img src="~/Content/img/news_1.jpg" alt=""/>
+                                    </div>
+                                    <h3>Шотландский виски: Подготовка</h3>
+                                    <p>Завораживающая история о бренде, удивительных открытиях и поступках создателей легендарного газированного напитка Coca-Cola.</p>
+                                </div>
+                            </div>
+                            <div class="news_item">
+                                <div class="news_item_date">май 24, 2015</div>
+                                <div class="news_item_content">
+                                    <div class="news_item_img">
+                                        <img src="~/Content/img/news_2.jpg" alt="" />
+                                    </div>
+                                    <h3>История бренда: Coca-Cola</h3>
+                                    <p>Завораживающая история о бренде, удивительных открытиях и поступках создателей легендарного газированного напитка Coca-Cola.</p>
+                                </div>
+                            </div>
+                            <div class="news_item">
+                                <div class="news_item_date">май 24, 2015</div>
+                                <div class="news_item_content">
+                                    <div class="news_item_img">
+                                        <img src="~/Content/img/news_3.jpg" alt="" />
+                                    </div>
+                                    <h3>Шотландский виски: Подготовка</h3>
+                                    <p>Шотландский дом-ресторан WHISKY CORNER: учимся правильно пить и закусывать благородный напиток.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section4">
+                <div class="contacts_wrap">
+                    <div class="block_top">
+                        <h2>Контакты</h2>
+                        <p>Необходимая информация и координаты для тех, кто собирается сделать заказ в сети наших ресторанов.</p>
+                        <p>Удобная карта, прямой телефон менеджера службы доставки.</p>
+                    </div>
+
+                    <form action="/" method="get" accept-charset="utf-8">
+                        <div class="contacts_form fl">
+                            <div class="contacts_form_item">
+                                <input type="text" name="" value="" placeholder="Ф.И.О." />
+                            </div>
+                            <div class="contacts_form_item">
+                                <input type="text" name="" value="" placeholder="e-mail" />
+                            </div>
+                            <div class="contacts_form_item">
+                                <textarea name="" rows="8" cols="40" placeholder="Ваше сообщение"></textarea>
+                            </div>
+                            <div class="contacts_form_item">
+                                <button type="submit">Отправить</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="contacts_form_info">
+                        <div class="item">
+                            <span class="ico_mail"></span>
+                            <p>restoran_doma@gmail.com</p>
+                        </div>
+
+                        <div class="item">
+                            <span class="ico_clock"></span>
+                            <p>Время приёма звонков <br /> с 9:00 до 23:00</p>
+                        </div>
+
+                        <div class="item">
+                            <span class="ico_phone"></span>
+                            <p>
+                                +380 63 345 67 89 <br />
+                                +380 56 345 60 80<br />
+                                +380 99 453 61 81
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="section" id="section5">
+                <div class="map_wrap">
+                    <div class="block_top">
+                        <h2>Карта ресторанов</h2>
+                    </div>
+                    <div class="map_item">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="center_cont">
+            <div class="item fl">
+                <div class="t_center">
+                    <p class="title">Доставка</p>
+                </div>
+                <div class="marker_grey"><p>Доставка бесплатно</p></div>
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <p>Минимальный заказ 100 грн.</p>
+                </div>
+
+                <p>Действует доставка в пригород </p>
+                <p>Днепропетровска. Детали у оператора</p>
+
+                <div class="social">
+                    <a href="" class="in"></a>
+                    <a href="" class="tw"></a>
+                    <a href="" class="fb"></a>
+                </div>
+            </div>
+            <div class="item fl">
+                <div class="t_center">
+                    <p class="title">Как заказать?</p>
+                </div>
+                <span class="ico_phone_white fl"></span>
+                <p>
+                    +380 63 345 67 89 <br />
+                    +380 56 345 60 80<br />
+                    +380 99 453 61 81
+                </p>
+                <span class="cont_mail fl"></span>
+                <a href="">restaurant_home.ua</a>
+
+            </div>
+            <div class="item fl">
+                <div class="t_center">
+                    <p class="title">Как оплатить?</p>
+                </div>
+                <div class="payment">
+                    <span class="ico_visa fl"></span>
+                    <p>Платёжная система<br /> VisaMasterCadr</p>
+                </div>
+
+                <div class="payment">
+                    <span class="ico_webmoney fl"></span>
+                    <p>C помощью сервиса <br /> WebMoney</p>
+                </div>
+
+                <div class="payment">
+                    <span class="ico_courier fl"></span>
+                    <p>Наличными курьеру <br />при получении заказа</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
