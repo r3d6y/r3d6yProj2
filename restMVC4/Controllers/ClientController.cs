@@ -97,7 +97,10 @@ namespace restMVC4.Controllers
 
                     var _user = services.ClientService.Insert(user);
                     Session["UserId"] = _user.IdClient;
-                    return RedirectToAction("RegistrationPacientStep", "User");
+                    LoginAfterReg(_user.Mail);
+
+                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("RegistrationPacientStep", "User");
                 }
                 else
                 {
@@ -131,6 +134,11 @@ namespace restMVC4.Controllers
             }
 
             return isValid;
+        }
+
+        private void LoginAfterReg(string Email)
+        {
+            FormsAuthentication.SetAuthCookie(Email, false);
         }
 
     }

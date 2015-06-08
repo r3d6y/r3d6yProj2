@@ -77,6 +77,7 @@ body {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
+    padding-bottom: 298px;
 }
 
 .center {
@@ -123,6 +124,7 @@ h3{
 	font-size: 22px;
 	color: #800d0e;
 	margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 h4{
@@ -217,6 +219,7 @@ ul.menu_users li a:hover .basket{
 	background: #331a10;
 	position: relative;
 	width: 100%;
+    margin-top: -298px;
 }
 
 .footer .item{
@@ -715,6 +718,18 @@ input[type="checkbox"]:checked + label::before {
 	background: rgba(0, 0, 0, 0) url("../img/dishes_head.png") repeat scroll center center;
 }
 
+.basket_head{
+	width: 100%;
+	height: 202px;
+	background: rgba(0, 0, 0, 0) url("../img/basket_head.jpg") repeat scroll center center;
+}
+
+.restaurants_head{
+	width: 100%;
+	height: 202px;
+	background: rgba(0, 0, 0, 0) url("../img/restaurants_head.jpg") repeat scroll center center;
+}
+
 .menu_filter{
 	margin-right: 60px;
 	margin-bottom: 30px;
@@ -918,14 +933,8 @@ input[type="checkbox"]:checked + label::before {
 
 /*-----------------------------------------------------------------------------*/
 
-.restaurants_head{
-	width: 100%;
-	height: 202px;
-	background: rgba(0, 0, 0, 0) url("../img/dishes_head.png") repeat scroll center center;
-}
-
 .restaurants_box{
-	width: 770px;
+	width: 765px;
 }
 
 .restaurants_block{
@@ -1122,4 +1131,123 @@ input[type="checkbox"]:checked + label::before {
 .basket_result .button{
     width: 100%;
     margin-top: 10px;
+}
+
+.news_block{
+    padding: 10px 0 0 0;
+    margin-bottom: 10px;
+}
+
+.news_img{
+    width: 308px;
+    height: 148px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.news_img img{
+    width: 308px;
+    height: 148px;
+}
+
+.news_preview a.title{
+    font-size: 22px;
+    color: #800d0e;
+    margin-bottom: 5px;
+    font-weight:bold;
+}
+
+.news_preview a.title:hover{
+    color: #331a10;
+}
+
+.news_preview p.date{
+    font-size: 16px;
+    font-weight:bold;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.news_preview p.info{
+    font-size: 16px;
+    color: #656565;
+}
+
+/*---------------------------------------------------------------*/
+
+.one_news_img{
+    width: 390px;
+    height: 267px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.one_news_img img{
+    width: 390px;
+    height: 267px;
+}
+
+.news_content p{
+    font-size: 18px;
+    color: #656565;
+}
+
+.news_content p.preview{
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.news_content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*-------------------------------------------------------------*/
+
+.specof_img{
+    width: 205px;
+    height: 148px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.specof_img img{
+    width: 205px;
+    height: 148px;
+    margin-bottom: 10px;
+}
+
+.specof_row .item{
+    padding: 10px 0;
+    position:relative;
+    width: 49%;
+}
+
+.specof_row .item .button_block{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.specof_info .title{
+    font-size: 22px;
+    font-weight: bold;
+    color: #800d0e;
+    margin-bottom:5px;
+}
+
+.specof_info .info{
+    font-size: 16px;
+    margin-bottom:5px;
+    color: #656565;
+}
+
+.specof_info .from{
+    font-size: 16px;
+    font-weight: bold;
+    color: #656565;
+}
+
+.specof_row .item:first-child{
+    margin-right: 10px;
 }

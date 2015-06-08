@@ -42,5 +42,16 @@ namespace restMVC4.Controllers
             return View();
         }
 
+        public ActionResult OneNews()
+        {
+            return View();
+        }
+
+        public ActionResult SpecialOffer()
+        {
+            return View();
+        }
+        
+
     }
 }

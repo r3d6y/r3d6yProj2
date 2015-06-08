@@ -36,5 +36,26 @@ namespace restMVC4.Controllers
             else
                 return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ManageRest()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ManageDish()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ManageProduct()
+        {
+            return View();
+        }
     }
 }
