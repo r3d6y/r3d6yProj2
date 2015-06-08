@@ -959,7 +959,7 @@ input[type="checkbox"]:checked + label::before {
 /*-----------------------------------------------------------------------------*/
 
 .restaurants_box{
-	width: 765px;
+	width: 755px;
 }
 
 .restaurants_block{
