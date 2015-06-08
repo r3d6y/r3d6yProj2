@@ -418,6 +418,7 @@
     <Content Include="Views\Administrator\ManageProduct.cshtml" />
     <Content Include="Views\Client\Registration.cshtml" />
     <Content Include="Views\Administrator\AddNewRest.cshtml" />
+    <Content Include="Views\Client\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

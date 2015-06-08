@@ -32,13 +32,13 @@
                 <div class="enter_input">
                     <img src="~/Content/img/user_reg.png" />
                     <div class="input_margin">
-                        <input />
+                        <input id="email"/>
                     </div>
                 </div>
                 <div class="enter_input">
                     <img src="~/Content/img/pass.png" />
                     <div class="input_margin">
-                        <input />
+                        <input id="password"/>
                     </div>
                 </div>
                 <div class="pop_up_link fl">
@@ -62,7 +62,16 @@
                     </ul>
                 </nav>
                 <ul class="menu_users fr">
-                    <li><a href="" id="my-button"><span class="user"></span>Личный кабинет</a></li>
+                    @{
+                        if (Session["UserName"] == null)
+                        {
+                            <li><a href="" id="my-button"><span class="user"></span>Личный кабинет</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Profile", "Client")"><span class="user"></span>Профиль</a></li>
+                        }
+                    }
                     <li><a href="@Url.Action("Basket", "Home")"><span class="basket"></span>Корзина пуста</a></li>
                 </ul>
             </div>
@@ -125,6 +134,30 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        console.log('bla');
+        @*$('.menu li a').each(function () {
+            if ($(this).prop('id') == '@ViewBag.Title')
+                $(this).addClass('active');
+            else
+                $(this).removeClass('active');
+        });*@
+        $('#enter').on('click', function () {
+
+            $.post('/Client/LoginAjax', { email: $('#email').val(), password: $('#password').val() })
+                .success(function (data) {
+                    if (data == true) {
+                        window.location = "/Home/Index";
+                    }
+                    else {
+                        $('.input_margin').css('border-color', 'red');
+                        console.log(data);
+                    }
+                });
+        });
+    });
+    </script>
     @*@Scripts.Render("~/bundles/jquery")*@
     @*@RenderSection("scripts", required: false)*@
 </body>
