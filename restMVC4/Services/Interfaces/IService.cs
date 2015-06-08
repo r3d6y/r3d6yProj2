@@ -10,5 +10,6 @@ namespace restMVC4.Services.Interfaces
         IClientService ClientService { get; }
         IRestaurantService RestService { get; }
         IDishService DishService { get; }
+        ICategoryService CategoryService { get; }
     }
 }

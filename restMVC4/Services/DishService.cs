@@ -21,5 +21,17 @@ namespace restMVC4.Services
         {
             return dishRepository.ToList();
         }
+
+        public void AddDish(DishModel model)
+        {
+            var dish = new Dish();
+            dish.IdCategory = model.IdCategory;
+            dish.IdRestaurant = model.IdRest;
+            dish.NameDish = model.Name;
+            dish.Price = model.Price;
+            dish.Weight = model.Weight;
+
+            dishRepository.Insert(ref dish);
+        }
     }
 }

@@ -1,19 +1,16 @@
-﻿@model List<restMVC4.Models.RestaurantModel>
+﻿@model List<restMVC4.Models.CategoryModel>
 @{
-    ViewBag.Title = "ManageRest";
+    ViewBag.Title = "ManageCategory";
 }
+
 <div class="wrapper">
     <div class="basket_head"></div>
     <div class="center_cont center_cont_marg">
-        <h2>ManageRest</h2>
-
         <div>
             <table>
                 <tr>
                     <td>id</td>
                     <td>title</td>
-                    <td>address</td>
-                    <td>phone</td>
                     <td>edit</td>
                     <td>delete</td>
                 </tr>
@@ -27,12 +24,6 @@
                             @r.Title
                         </td>
                         <td>
-                            @r.Address
-                        </td>
-                        <td>
-                            @r.Phone
-                        </td>
-                        <td>
                             <a href="">edit</a>
                         </td>
                         <td>
@@ -43,8 +34,11 @@
             </table>
         </div>
         <div>
-            <a href="@Url.Action("AddNewRest", "Administrator")">add new</a>
+            <a href="@Url.Action("AddNewCategory", "Administrator")">add new</a>
         </div>
 
+        </div>
     </div>
-</div>
+
+
+        

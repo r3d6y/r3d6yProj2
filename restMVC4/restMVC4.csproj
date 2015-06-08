@@ -433,7 +433,9 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\OneNews.cshtml" />
     <Content Include="Views\Home\SpecialOffer.cshtml" />
-    <Content Include="Views\Home\Order.cshtml" />
+    <Content Include="Views\Administrator\ManageCategory.cshtml" />
+    <Content Include="Views\Administrator\AddNewCategory.cshtml" />
+    <Content Include="Views\Administrator\AddNewDish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

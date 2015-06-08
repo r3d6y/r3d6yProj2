@@ -12,9 +12,21 @@ namespace restMVC4.Services
     {
         private readonly BaseRepository<CategoryProducts> categoryRepository;
 
+        public CategoryService()
+        {
+            categoryRepository = new BaseRepository<CategoryProducts>();
+        }
+
         public IEnumerable<CategoryProducts> GetCategories()
         {
             return categoryRepository.ToList();
+        }
+
+        public void AddCategory(CategoryModel model)
+        {
+            CategoryProducts category = new CategoryProducts();
+            category.TitleCategory = model.Title;
+            categoryRepository.Insert(ref category);
         }
     }
 }

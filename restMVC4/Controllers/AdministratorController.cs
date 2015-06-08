@@ -80,15 +80,40 @@ namespace restMVC4.Controllers
         [HttpGet]
         public ActionResult AddNewDish()
         {
-            return View();
+            var rest = services.RestService.GetRestaurants().Select(x => new RestaurantModel(x)).ToList();
+            var cat = services.CategoryService.GetCategories().Select(x => new CategoryModel(x)).ToList();
+            return View(new DishModel(cat, rest));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddNewDish(DishModel model)
+        {
+            services.DishService.AddDish(model);
+            return RedirectToAction("ManageDish", "Administrator");
         }
 
         [Authorize]
         [HttpGet]
         public ActionResult ManageCategory()
         {
-            List<CategoryModel> model;
+            List<CategoryModel> model = services.CategoryService.GetCategories().Select(x => new CategoryModel(x)).ToList();
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult AddNewCategory()
+        {
             return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddNewCategory(CategoryModel model)
+        {
+            services.CategoryService.AddCategory(model);
+            return RedirectToAction("ManageCategory", "Administrator");
         }
     }
 }

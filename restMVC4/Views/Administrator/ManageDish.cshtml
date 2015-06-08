@@ -2,53 +2,58 @@
 @{
     ViewBag.Title = "ManageDish";
 }
-<div class="dishes_head"></div>
+<div class="wrapper">
+    <div class="basket_head"></div>
+    <div class="center_cont center_cont_marg">
+        <h2>ManageDish</h2>
 
-<h2>ManageDish</h2>
+        <div>
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>weight</td>
+                    <td>price</td>
+                    <td>restaurant</td>
+                    <td>category</td>
+                    <td>edit</td>
+                    <td>delete</td>
+                </tr>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>
+                            @r.Id
+                        </td>
+                        <td>
+                            @r.Name
+                        </td>
+                        <td>
+                            @r.Weight
+                        </td>
+                        <td>
+                            @r.Price
+                        </td>
+                        <td>
+                            rest drop
+                        </td>
+                        <td>
+                            cat drop
+                        </td>
+                        <td>
+                            <a href="">edit</a>
+                        </td>
+                        <td>
+                            <a href="">delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div>
+            <a href="@Url.Action("AddNewDish", "Administrator")">add new</a>
+        </div>
 
-<div>
-    <table>
-        <tr>
-            <td>id</td>
-            <td>name</td>
-            <td>weight</td>
-            <td>price</td>
-            <td>restaurant</td>
-            <td>category</td>
-            <td>edit</td>
-            <td>delete</td>
-        </tr>
-        @foreach (var r in Model)
-        {
-            <tr>
-                <td>
-                    @r.Id
-                </td>
-                <td>
-                    @r.Name
-                </td>
-                <td>
-                    @r.Weight
-                </td>
-                <td>
-                    @r.Price
-                </td>
-                <td>
-                    rest drop
-                </td>
-                <td>
-                    cat drop
-                </td>
-                <td>
-                    <a href="">edit</a>
-                </td>
-                <td>
-                    <a href="">delete</a>
-                </td>
-            </tr>
-        }
-    </table>
+    </div>
 </div>
-<div>
-    <a href="@Url.Action("AddNewDish", "Administrator")">add new</a>
-</div>
+
