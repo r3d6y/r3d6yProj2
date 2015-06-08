@@ -385,6 +385,7 @@
       <DependentUpon>RestDBModel.edmx</DependentUpon>
       <LastGenOutput>RestDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -436,6 +437,7 @@
     <Content Include="Views\Administrator\ManageCategory.cshtml" />
     <Content Include="Views\Administrator\AddNewCategory.cshtml" />
     <Content Include="Views\Administrator\AddNewDish.cshtml" />
+    <Content Include="Views\Home\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
