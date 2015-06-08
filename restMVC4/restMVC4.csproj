@@ -437,6 +437,7 @@
     <Content Include="Views\Administrator\ManageCategory.cshtml" />
     <Content Include="Views\Administrator\AddNewCategory.cshtml" />
     <Content Include="Views\Administrator\AddNewDish.cshtml" />
+    <Content Include="Views\Home\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
