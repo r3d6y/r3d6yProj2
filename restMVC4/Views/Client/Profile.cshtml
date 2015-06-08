@@ -3,17 +3,54 @@
     ViewBag.Title = "Profile";
 }
 <div class="dishes_head"></div>
-<div>
-    <div>
-        <a>Edit profile</a>
-    </div>
-    @if(Model.IsAdmin == null ? false : (bool)Model.IsAdmin)
-    {
-        <div>
-            <a href="@Url.Action("Administrate", "Administrator")">Administrate</a>
+
+<div class="wrapper">
+
+
+
+    <div class="dishes_head"></div>
+
+    <div class="center_cont center_cont_marg">
+        <div class="profile">
+            <h3 class="fl">@Model.Name</h3><a href=""><span class="ico_edit"></span></a>
+            <div class="clear"></div>
+            <div class="separator"></div>
+            <p class="title">Управляйте базовыми данными – именем, адресом электронной почты, номером телефона.</p>
+
+            <table class="profile_info fl">
+                <tr>
+                    <td>Ф.И.О.</td>
+                    <td>@Model.Name @Model.Patronymic @Model.Surname</td>
+                </tr>
+                <tr>
+                    <td>Дата рождения</td>
+                    <td>10.05.1992</td>
+                </tr>
+                <tr>
+                    <td>Адрес</td>
+                    <td>Лазаряна 2, корп.3, к.105</td>
+                </tr>
+                <tr>
+                    <td>Электронная почта</td>
+                    <td>@Model.Mail</td>
+                </tr>
+                <tr>
+                    <td>Телефон</td>
+                    <td>@Model.Phone</td>
+                </tr>
+            </table>
+            
+            @if (Model.IsAdmin == null ? false : (bool)Model.IsAdmin)
+            {
+                <div class="profile_button">
+                    <a class="button" href="@Url.Action("Administrate", "Administrator")">Администрирование</a>
+                </div>
+            }
+            <div class="profile_button">
+                <a class="button" href="@Url.Action("LogOut", "Client")">Выход</a>
+            </div>
+            <div class="clear"></div>
         </div>
-    }
-    <div>
-        <a href="@Url.Action("LogOut", "Client")">Exit</a>
     </div>
+
 </div>
