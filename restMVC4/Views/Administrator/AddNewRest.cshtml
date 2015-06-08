@@ -3,19 +3,24 @@
 @{
     ViewBag.Title = "AddNewRest";
 }
-<div class="dishes_head"></div>
-<h2>AddNewRest</h2>
-@using (Html.BeginForm())
-{
-    <div>
-        <div><p>title</p></div>
-        <div>@Html.TextBoxFor(x => x.Title)</div>
+<div class="wrapper">
+    <div class="basket_head"></div>
+    <div class="center_cont center_cont_marg">
+        <h2>AddNewRest</h2>
+        @using (Html.BeginForm())
+        {
+            <div>
+                <div><p>title</p></div>
+                <div>@Html.TextBoxFor(x => x.Title)</div>
 
-        <div><p>address</p></div>
-        <div>@Html.TextBoxFor(x => x.Address)</div>
+                <div><p>address</p></div>
+                <div>@Html.TextBoxFor(x => x.Address)</div>
 
-        <div><p>phone</p></div>
-        <div>@Html.TextBoxFor(x => x.Phone)</div>
+                <div><p>phone</p></div>
+                <div>@Html.TextBoxFor(x => x.Phone)</div>
+            </div>
+            <input type="submit" />
+        }
+
     </div>
-    <input type="submit" />
-}
+</div>

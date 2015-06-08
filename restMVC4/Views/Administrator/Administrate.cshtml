@@ -2,10 +2,18 @@
     ViewBag.Title = "Administrate";
 }
 
-<div class="dishes_head"></div>
-<h2>Administrate</h2>
+<div class="wrapper">
+    <div class="basket_head"></div>
+    <div class="center_cont center_cont_marg">
 
-<div>
-    <div><a href="@Url.Action("ManageRest", "Administrator")">Управление ресторанами</a></div>
-    <div><a href="@Url.Action("ManageDish", "Administrator")">Управление блюдами</a></div>
-</div>
+        <h2>Administrate</h2>
+
+        <div>
+            <div><a href="@Url.Action("ManageRest", "Administrator")">Управление ресторанами</a></div>
+            <div><a href="@Url.Action("ManageDish", "Administrator")">Управление блюдами</a></div>
+            <div><a href="@Url.Action("ManageCategory", "Administrator")">Управление категориями</a></div>
+        </div>
+
+        </div>
+    </div>
+        

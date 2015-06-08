@@ -10,5 +10,6 @@ namespace restMVC4.Services.Interfaces
     public interface IDishService
     {
         IEnumerable<Dish> GetDishes();
+        void AddDish(DishModel model);
     }
 }

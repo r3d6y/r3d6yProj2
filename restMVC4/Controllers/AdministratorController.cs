@@ -80,7 +80,17 @@ namespace restMVC4.Controllers
         [HttpGet]
         public ActionResult AddNewDish()
         {
-            return View();
+            var rest = services.RestService.GetRestaurants().Select(x => new RestaurantModel(x)).ToList();
+            var cat = services.CategoryService.GetCategories().Select(x => new CategoryModel(x)).ToList();
+            return View(new DishModel(cat, rest));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddNewDish(DishModel model)
+        {
+            services.DishService.AddDish(model);
+            return RedirectToAction("ManageDish", "Administrator");
         }
 
         [Authorize]

@@ -1,0 +1,42 @@
+﻿@model restMVC4.Models.DishModel
+
+@{
+    ViewBag.Title = "AddNewDish";
+}
+
+<div class="wrapper">
+    <div class="basket_head"></div>
+    <div class="center_cont center_cont_marg">
+        <h2>AddNewDish</h2>
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                <div><p>name</p></div>
+                <div>@Html.TextBoxFor(x => x.Name)</div>
+            </div>
+            <div>
+                <div><p>weight</p></div>
+                <div>@Html.TextBoxFor(x => x.Weight)</div>
+            </div>
+            <div>
+                <div><p>price</p></div>
+                <div>@Html.TextBoxFor(x => x.Price)</div>
+            </div>
+
+            <div>
+                <div><p>rest</p></div>
+                <div>@Html.DropDownListFor(m => m.IdRest, Model.Restaurants)</div>
+            </div>
+
+            <div>
+                <div><p>category</p></div>
+                <div>@Html.DropDownListFor(m => m.IdCategory, Model.Categories)</div>
+            </div>
+            <input type="submit" />
+        }
+
+    </div>
+</div>
+
+
