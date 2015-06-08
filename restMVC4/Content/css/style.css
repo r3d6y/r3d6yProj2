@@ -1251,3 +1251,41 @@ input[type="checkbox"]:checked + label::before {
 .specof_row .item:first-child{
     margin-right: 10px;
 }
+
+/*---------------------------------------------------------------*/
+
+.ico_edit{
+	background: url('../img/ico_edit.png');
+	display: inline-block;
+	width: 19px;
+	height: 18px;
+	margin-left: 10px;
+}
+
+.profile p.title{
+	font-size: 16px;
+	color: #555555;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.profile_info{
+	margin-top: 30px;
+	margin-left: 30px;
+	width: 50%;
+	
+}
+
+.profile_info tr td{
+	font-size: 16px;
+	color: #555555;
+	height: 50px;
+}
+
+.profile_info tr td:first-child{
+	font-weight: bold;
+}
+
+.profile_button{
+	margin: 30px 0;
+}
