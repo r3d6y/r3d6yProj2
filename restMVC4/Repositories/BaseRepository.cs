@@ -15,7 +15,7 @@ namespace restMVC4.Repositories
 
         public BaseRepository()
         {
-            _context = new DiplomaDBContext();
+            _context = new DiplomaEntities();
             _objectSet = _context.Set<T>();
         }
 

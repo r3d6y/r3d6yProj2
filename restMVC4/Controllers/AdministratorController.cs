@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restMVC4.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -41,7 +42,8 @@ namespace restMVC4.Controllers
         [HttpGet]
         public ActionResult ManageRest()
         {
-            return View();
+            List<RestaurantModel> model = services.RestService.GetRestaurants().Select(x => new RestaurantModel(x)).ToList();//= new List<RestaurantModel>();
+            return View(model);
         }
 
         [Authorize]
@@ -56,6 +58,21 @@ namespace restMVC4.Controllers
         public ActionResult ManageProduct()
         {
             return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult AddNewRest()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddNewRest(RestaurantModel model)
+        {
+            services.RestService.AddRest(model);
+            return RedirectToAction("ManageRest", "Administrator");
         }
     }
 }

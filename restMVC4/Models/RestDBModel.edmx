@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище DiplomaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище DiplomaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Basket">
           <Key>
             <PropertyRef Name="IdBasket" />
           </Key>
-          <Property Name="IdBasket" Type="int" Nullable="false" />
+          <Property Name="IdBasket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdOrder" Type="int" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
         </EntityType>
@@ -17,14 +17,14 @@
           <Key>
             <PropertyRef Name="IdCategory" />
           </Key>
-          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TitleCategory" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="IdClient" />
           </Key>
-          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Patronymic" Type="varchar" MaxLength="25" Nullable="false" />
@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="IdDish" />
           </Key>
-          <Property Name="IdDish" Type="int" Nullable="false" />
+          <Property Name="IdDish" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdRestaurant" Type="int" Nullable="false" />
           <Property Name="IdCategory" Type="int" Nullable="false" />
           <Property Name="NameDish" Type="varchar" MaxLength="50" Nullable="false" />
@@ -59,7 +59,7 @@
           <Key>
             <PropertyRef Name="IdOrder" />
           </Key>
-          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="IdOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdClient" Type="int" Nullable="false" />
           <Property Name="DateOrder" Type="datetime" Nullable="false" />
           <Property Name="DateDelivery" Type="datetime" Nullable="false" />
@@ -81,7 +81,7 @@
           <Key>
             <PropertyRef Name="IdProducts" />
           </Key>
-          <Property Name="IdProducts" Type="int" Nullable="false" />
+          <Property Name="IdProducts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameProduct" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Weight" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
@@ -89,20 +89,10 @@
           <Key>
             <PropertyRef Name="IdRestaurant" />
           </Key>
-          <Property Name="IdRestaurant" Type="int" Nullable="false" />
+          <Property Name="IdRestaurant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TitleRestaurant" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__Basket__IdOrder__20C1E124">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
@@ -208,7 +198,6 @@
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dish_Product" EntityType="Self.Dish_Product" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Dish_Product].[IdDish] AS [IdDish], 
@@ -254,7 +243,8 @@
             <End Role="Order_Dish" EntitySet="Order_Dish" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DiplomaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -262,7 +252,7 @@
           <Key>
             <PropertyRef Name="IdBasket" />
           </Key>
-          <Property Name="IdBasket" Type="Int32" Nullable="false" />
+          <Property Name="IdBasket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdOrder" Type="Int32" Nullable="false" />
           <Property Name="Number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK__Basket__IdOrder__20C1E124" FromRole="Basket" ToRole="Order" />
@@ -271,7 +261,7 @@
           <Key>
             <PropertyRef Name="IdCategory" />
           </Key>
-          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dish" Relationship="Self.FK__Dish__IdCategory__0DAF0CB0" FromRole="CategoryProducts" ToRole="Dish" />
         </EntityType>
@@ -279,7 +269,7 @@
           <Key>
             <PropertyRef Name="IdClient" />
           </Key>
-          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
@@ -287,14 +277,14 @@
           <Property Name="Mail" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__Order__IdClient__1920BF5C" FromRole="Client" ToRole="Order" />
           <Property Name="IsAdmin" Type="Boolean" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__Order__IdClient__1920BF5C" FromRole="Client" ToRole="Order" />
         </EntityType>
         <EntityType Name="Dish">
           <Key>
             <PropertyRef Name="IdDish" />
           </Key>
-          <Property Name="IdDish" Type="Int32" Nullable="false" />
+          <Property Name="IdDish" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdRestaurant" Type="Int32" Nullable="false" />
           <Property Name="IdCategory" Type="Int32" Nullable="false" />
           <Property Name="NameDish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -309,7 +299,7 @@
           <Key>
             <PropertyRef Name="IdOrder" />
           </Key>
-          <Property Name="IdOrder" Type="Int32" Nullable="false" />
+          <Property Name="IdOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateDelivery" Type="DateTime" Nullable="false" Precision="3" />
@@ -324,7 +314,7 @@
           <Key>
             <PropertyRef Name="IdProducts" />
           </Key>
-          <Property Name="IdProducts" Type="Int32" Nullable="false" />
+          <Property Name="IdProducts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameProduct" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Weight" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dish" Relationship="Self.Dish_Product" FromRole="Products" ToRole="Dish" />
@@ -333,7 +323,7 @@
           <Key>
             <PropertyRef Name="IdRestaurant" />
           </Key>
-          <Property Name="IdRestaurant" Type="Int32" Nullable="false" />
+          <Property Name="IdRestaurant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleRestaurant" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
@@ -395,7 +385,7 @@
           <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DiplomaDBContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DiplomaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Basket" EntityType="Self.Basket" />
           <EntitySet Name="CategoryProducts" EntityType="Self.CategoryProducts" />
           <EntitySet Name="Client" EntityType="Self.Client" />
@@ -427,24 +417,13 @@
             <End Role="Dish" EntitySet="Dish" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="DiplomaModel.sysdiagrams" />
         </EntityContainer>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DiplomaModelContainer" CdmEntityContainer="DiplomaDBContext">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DiplomaModelContainer" CdmEntityContainer="DiplomaEntities">
           <EntitySetMapping Name="Basket">
             <EntityTypeMapping TypeName="DiplomaModel.Basket">
               <MappingFragment StoreEntitySet="Basket">
@@ -465,7 +444,6 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="DiplomaModel.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -474,6 +452,7 @@
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -537,17 +516,6 @@
               <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DiplomaModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

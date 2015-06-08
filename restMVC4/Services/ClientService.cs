@@ -64,6 +64,7 @@ namespace restMVC4.Services
             client.Patronymic = model.Patronymic;
             client.Phone = model.Phone;
             client.Surname = model.SurName;
+            client.IsAdmin = false;
 
             return client;
         }

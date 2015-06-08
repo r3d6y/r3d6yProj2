@@ -13,10 +13,10 @@ namespace restMVC4.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DiplomaDBContext : DbContext
+    public partial class DiplomaEntities : DbContext
     {
-        public DiplomaDBContext()
-            : base("name=DiplomaDBContext")
+        public DiplomaEntities()
+            : base("name=DiplomaEntities")
         {
         }
     
@@ -32,6 +32,5 @@ namespace restMVC4.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Restaurants> Restaurants { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

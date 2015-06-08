@@ -1,0 +1,19 @@
+﻿@model restMVC4.Models.Client
+@{
+    ViewBag.Title = "Profile";
+}
+<div class="dishes_head"></div>
+<div>
+    <div>
+        <a>Edit profile</a>
+    </div>
+    @if(Model.IsAdmin == null ? false : (bool)Model.IsAdmin)
+    {
+        <div>
+            <a href="@Url.Action("Administrate", "Administrator")">Administrate</a>
+        </div>
+    }
+    <div>
+        <a href="@Url.Action("LogOut", "Client")">Exit</a>
+    </div>
+</div>

@@ -120,6 +120,15 @@ namespace restMVC4.Controllers
             Session["UserName"] = null;
             return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Profile()
+        {
+            var user = services.ClientService.GetByEmail(Session["UserName"].ToString());
+            return View(user);
+        }
+
         private bool IsValid(string email, string password)
         {
             bool isValid = false;

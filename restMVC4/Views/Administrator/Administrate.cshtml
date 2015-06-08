@@ -2,7 +2,10 @@
     ViewBag.Title = "Administrate";
 }
 
+<div class="dishes_head"></div>
 <h2>Administrate</h2>
 
-<div><a href="@Url.Action("", "")">Управление ресторанами</a></div>
-<div><a href="@Url.Action("", "")">Управление блюдами</a></div>
+<div>
+    <div><a href="@Url.Action("ManageRest", "Administrator")">Управление ресторанами</a></div>
+    <div><a href="@Url.Action("ManageDish", "Administrator")">Управление блюдами</a></div>
+</div>

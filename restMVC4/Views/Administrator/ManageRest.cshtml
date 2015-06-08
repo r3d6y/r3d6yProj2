@@ -1,5 +1,45 @@
-﻿@{
+﻿@model List<restMVC4.Models.RestaurantModel>
+@{
     ViewBag.Title = "ManageRest";
 }
-
+<div class="dishes_head"></div>
 <h2>ManageRest</h2>
+
+<div>
+    <table>
+        <tr>
+            <td>id</td>
+            <td>title</td>
+            <td>address</td>
+            <td>phone</td>
+            <td>edit</td>
+            <td>delete</td>
+        </tr>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>
+                    @r.Id
+                </td>
+                <td>
+                    @r.Title
+                </td>
+                <td>
+                    @r.Address
+                </td>
+                <td>
+                    @r.Phone
+                </td>
+                <td>
+                    <a href="">edit</a>
+                </td>
+                <td>
+                    <a href="">delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a href="@Url.Action("AddNewRest", "Administrator")">add new</a>
+</div>
