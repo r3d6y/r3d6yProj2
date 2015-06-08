@@ -285,6 +285,7 @@
     <Content Include="Content\img\news_3.jpg" />
     <Content Include="Content\img\news_head.jpg" />
     <Content Include="Content\img\onenews_head.jpg" />
+    <Content Include="Content\img\order_head.jpg" />
     <Content Include="Content\img\pass.png" />
     <Content Include="Content\img\phone.png" />
     <Content Include="Content\img\phone_white.png" />
