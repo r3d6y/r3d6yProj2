@@ -270,6 +270,7 @@
     <Content Include="Content\img\head4.png" />
     <Content Include="Content\img\home.png" />
     <Content Include="Content\img\ico_courier.png" />
+    <Content Include="Content\img\ico_edit.png" />
     <Content Include="Content\img\ico_info.png" />
     <Content Include="Content\img\ico_visa.png" />
     <Content Include="Content\img\ico_webmoney.png" />
