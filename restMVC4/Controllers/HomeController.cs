@@ -37,5 +37,10 @@ namespace restMVC4.Controllers
             return View();
         }
 
+        public ActionResult News()
+        {
+            return View();
+        }
+
     }
 }

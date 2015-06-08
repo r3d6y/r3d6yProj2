@@ -255,6 +255,7 @@
     <Content Include="Content\img\delete.png" />
     <Content Include="Content\img\dessert.png" />
     <Content Include="Content\img\discount.png" />
+    <Content Include="Content\img\discount_red.png" />
     <Content Include="Content\img\dishes1.jpg" />
     <Content Include="Content\img\dishes_head.png" />
     <Content Include="Content\img\dishes_mini1.jpg" />
@@ -414,6 +415,7 @@
     <Content Include="Views\Home\Dishes.cshtml" />
     <Content Include="Views\Home\Basket.cshtml" />
     <Content Include="Views\Administrator\Administrate.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
