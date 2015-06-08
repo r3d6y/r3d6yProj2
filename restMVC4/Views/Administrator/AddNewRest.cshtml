@@ -1,0 +1,21 @@
+﻿@model restMVC4.Models.RestaurantModel
+
+@{
+    ViewBag.Title = "AddNewRest";
+}
+
+<h2>AddNewRest</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <div><p>title</p></div>
+        <div>@Html.TextBoxFor(x => x.Title)</div>
+
+        <div><p>address</p></div>
+        <div>@Html.TextBoxFor(x => x.Address)</div>
+
+        <div><p>phone</p></div>
+        <div>@Html.TextBoxFor(x => x.Phone)</div>
+    </div>
+    <input type="submit" />
+}

@@ -8,5 +8,6 @@ namespace restMVC4.Services.Interfaces
     public interface IService
     {
         IClientService ClientService { get; }
+        IRestaurantService RestService { get; }
     }
 }
