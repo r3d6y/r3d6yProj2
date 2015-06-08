@@ -50,7 +50,8 @@ namespace restMVC4.Controllers
         [HttpGet]
         public ActionResult ManageDish()
         {
-            return View();
+            List<DishModel> model = services.DishService.GetDishes().Select(x => new DishModel(x)).ToList();
+            return View(model);
         }
 
         [Authorize]
@@ -73,6 +74,21 @@ namespace restMVC4.Controllers
         {
             services.RestService.AddRest(model);
             return RedirectToAction("ManageRest", "Administrator");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult AddNewDish()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ManageCategory()
+        {
+            List<CategoryModel> model;
+            return View();
         }
     }
 }
