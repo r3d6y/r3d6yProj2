@@ -414,6 +414,10 @@
     <Content Include="Views\Home\Dishes.cshtml" />
     <Content Include="Views\Home\Basket.cshtml" />
     <Content Include="Views\Administrator\Administrate.cshtml" />
+    <Content Include="Views\Administrator\ManageRest.cshtml" />
+    <Content Include="Views\Administrator\ManageDish.cshtml" />
+    <Content Include="Views\Administrator\ManageProduct.cshtml" />
+    <Content Include="Views\Client\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
