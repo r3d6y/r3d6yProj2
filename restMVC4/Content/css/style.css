@@ -959,7 +959,7 @@ input[type="checkbox"]:checked + label::before {
 /*-----------------------------------------------------------------------------*/
 
 .restaurants_box{
-	width: 765px;
+	width: 755px;
 }
 
 .restaurants_block{
@@ -1383,8 +1383,8 @@ input[type="checkbox"]:checked + label::before {
 }
 
 .right_form{
-    margin-left: 30px;
-    width: 540px;
+    margin-left: 122px;
+    width: 450px;
 }
 
 .right_form .button_block{
