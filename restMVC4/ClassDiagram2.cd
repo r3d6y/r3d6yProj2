@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="restMVC4.Controllers.AdministratorController">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAgAAAAgAAAAAAAAAIAAAgAAAAAAAAMAAAAgAAA=</HashCode>
+      <FileName>Controllers\AdministratorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Controllers.BaseController" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Controllers.ClientController">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAggAIAAAAAAAABAAABAAAAAEAAA=</HashCode>
+      <FileName>Controllers\ClientController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Controllers.HomeController">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAABAAAAAAgAAgAAQAAAAAAAAAAAgAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Models.CategoryModel">
+    <Position X="1.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CategoryModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Models.ClientModel">
+    <Position X="3" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAAAAAAAAAAAEAAQACAAAAAACAAAAJQAAAAA=</HashCode>
+      <FileName>Models\ClientModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Models.DishModel">
+    <Position X="4.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAQAAAAAAAAAAAAQAACAIEAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\DishModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Models.LogInModel">
+    <Position X="1.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LogInModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Models.RestaurantModel">
+    <Position X="1.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Models\RestaurantModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="restMVC4.Repositories.BaseRepository&lt;T&gt;">
+    <Position X="6.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAFAYAAAABAAAAAAAAAAAAAEAAAAAAAgBAAAAAAA=</HashCode>
+      <FileName>Repositories\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="restMVC4.Services.CategoryService" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAQAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CategoryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="restMVC4.Services.ClientService" BaseTypeListCollapsed="true">
+    <Position X="3" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAIAAAAAGAAIAAAAAAAAAAAII=</HashCode>
+      <FileName>Services\ClientService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="restMVC4.Services.DishService" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DishService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="restMVC4.Services.RestaurantService" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAQAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\RestaurantService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="restMVC4.Services.Services" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAEAAAQAAAAAAAAAAAQAAAQEAQAAAAEAA=</HashCode>
+      <FileName>Services\Services.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="restMVC4.Services.Interfaces.ICategoryService">
+    <Position X="1.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\ICategoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="restMVC4.Services.Interfaces.IClientService">
+    <Position X="3" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAII=</HashCode>
+      <FileName>Services\Interfaces\IClientService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="restMVC4.Services.Interfaces.IDishService">
+    <Position X="4.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\IDishService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="restMVC4.Services.Interfaces.IRestaurantService">
+    <Position X="8.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\IRestaurantService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="restMVC4.Services.Interfaces.IService">
+    <Position X="6.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAEAAAAAAEAA=</HashCode>
+      <FileName>Services\Interfaces\IService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

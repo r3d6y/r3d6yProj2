@@ -39,14 +39,12 @@ namespace restMVC4.Controllers
                     ModelState.AddModelError("", "Login data is incorrect.");
                 }
             }
-            return RedirectToAction("Index", "Home");//View("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public ActionResult LoginAjax(string email, string password)
         {
-            //JavaScriptSerializer js = new JavaScriptSerializer();
-            //var model = js.Deserialize<LoginJsonMode>(data);
             if (IsValid(email, password))
             {
                 FormsAuthentication.SetAuthCookie(email, false);
@@ -70,9 +68,7 @@ namespace restMVC4.Controllers
                     ContentType = "application/json"
                 };
                 return JsonResult;
-                //return RedirectToAction("Index", "Home");
             }
-            //return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -100,7 +96,6 @@ namespace restMVC4.Controllers
                     LoginAfterReg(_user.Mail);
 
                     return RedirectToAction("Index", "Home");
-                    //return RedirectToAction("RegistrationPacientStep", "User");
                 }
                 else
                 {
