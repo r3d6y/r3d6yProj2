@@ -144,6 +144,7 @@
     <Compile Include="Models\Basket.cs">
       <DependentUpon>RestDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BasketKeyValueModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CategoryProducts.cs">
       <DependentUpon>RestDBModel.tt</DependentUpon>

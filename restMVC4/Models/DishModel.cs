@@ -37,6 +37,7 @@ namespace restMVC4.Models
             Price = model.Price;
             IdRest = model.IdRestaurant;
             IdCategory = model.IdCategory;
+            Restaurant = model.Restaurants;
         }
 
         public int Id { get; set; }
@@ -48,5 +49,7 @@ namespace restMVC4.Models
 
         public IEnumerable<SelectListItem> Categories { get; set; }
         public IEnumerable<SelectListItem> Restaurants { get; set; }
+
+        public Restaurants Restaurant { get; set; }
     }
 }

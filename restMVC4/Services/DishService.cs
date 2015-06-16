@@ -11,6 +11,8 @@ namespace restMVC4.Services
     public class DishService : IDishService
     {
         private readonly BaseRepository<Dish> dishRepository;
+        private readonly BaseRepository<Basket> basketRepository;
+        private readonly BaseRepository<Order> orderRepository;
 
         public DishService()
         {
@@ -32,6 +34,29 @@ namespace restMVC4.Services
             dish.Weight = model.Weight;
 
             dishRepository.Insert(ref dish);
+        }
+
+        public void AddToBasket(int dishId, int userId)
+        {
+
+        }
+
+        public Dish GetDishById(int id)
+        {
+            return dishRepository.FirstOrDefault(x => x.IdDish == id);
+        }
+
+        public void BuyDishes(List<BasketKeyValueModel> usersDihses, Client user)
+        {
+            Order order = new Order();
+            order.IdClient = user.IdClient;
+            order.AddressDelivery = "user " + user.Mail + " address";
+            order.DateOrder = DateTime.Now;
+            order.DateDelivery = DateTime.Now;
+            order.Payment = "Mastercard";
+            order.Implementation = "In progress";
+
+            orderRepository.Insert(ref order);
         }
     }
 }

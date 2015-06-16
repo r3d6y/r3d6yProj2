@@ -11,5 +11,8 @@ namespace restMVC4.Services.Interfaces
     {
         IEnumerable<Dish> GetDishes();
         void AddDish(DishModel model);
+        void AddToBasket(int dishId, int userId);
+        Dish GetDishById(int id);
+        void BuyDishes(List<BasketKeyValueModel> usersDihses, Client user);
     }
 }

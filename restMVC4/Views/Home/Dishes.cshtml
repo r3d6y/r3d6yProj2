@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<restMVC4.Models.DishModel>
+@{
     ViewBag.Title = "Dishes";
 }
 
@@ -69,143 +70,42 @@
         </div>
 
         <div class="fl dishes_box">
-            <h3>Ресторан Атриум</h3>
+            <h3>@Model.FirstOrDefault().Restaurant.TitleRestaurant</h3>
             <div class="separator"></div>
-
+            @if(Model != null)
+            { 
+            foreach(var d in Model)
+            {
             <div>
                 <div class="dishes_block fl">
                     <div class="dishes_img">
                         <img src="~/Content/img/dishes1.jpg" />
-                        <div class="dishes_blur">
+                        @*<div class="dishes_blur">
                             <div>
                                 <p>Хрустящие миндальные коржи, пропитанные сливочным кремом с сыром "Маскарпоне" и усыпанные шоколадной крошкой.</p>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                     <div class="dishes_name">
-                        <p class="name">Миндальный торт</p>
-                        <p>(120/40г)</p>
+                        <p class="name">@d.Name</p>
+                        <p>(@d.Weight г)</p>
                     </div>
 
                     <div class="dishes_footer">
-                        <p class="fl">58 грн.</p>
-                        <a class="fr button">В корзину</a>
-                    </div>
-
-                </div>
-
-                <div class="dishes_block fl">
-                    <div class="dishes_img">
-                        <img src="~/Content/img/dishes1.jpg" />
-                        <div class="dishes_blur">
-                            <div>
-                                <p>Хрустящие миндальные коржи, пропитанные сливочным кремом с сыром "Маскарпоне" и усыпанные шоколадной крошкой.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dishes_name">
-                        <p class="name">Миндальный торт</p>
-                        <p>(120/40г)</p>
-                    </div>
-
-                    <div class="dishes_footer">
-                        <p class="fl">58 грн.</p>
-                        <a class="fr button">В корзину</a>
-                    </div>
-
-                </div>
-
-                <div class="dishes_block fl">
-                    <div class="dishes_img">
-                        <img src="~/Content/img/dishes1.jpg" />
-                        <div class="dishes_blur">
-                            <div>
-                                <p>Хрустящие миндальные коржи, пропитанные сливочным кремом с сыром "Маскарпоне" и усыпанные шоколадной крошкой.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dishes_name">
-                        <p class="name">Миндальный торт</p>
-                        <p>(120/40г)</p>
-                    </div>
-
-                    <div class="dishes_footer">
-                        <p class="fl">58 грн.</p>
-                        <a class="fr button">В корзину</a>
+                        <p class="fl">@d.Price грн.</p>
+                        <a class="fr button" href="@Url.Action("AddToBasket", "Home", new { id = d.Id })">В корзину</a>
                     </div>
 
                 </div>
 
             </div>
             <div class="clear"></div>
-
-            <div>
-                <div class="dishes_block fl">
-                    <div class="dishes_img">
-                        <img src="~/Content/img/dishes1.jpg" />
-                        <div class="dishes_blur">
-                            <div>
-                                <p>Хрустящие миндальные коржи, пропитанные сливочным кремом с сыром "Маскарпоне" и усыпанные шоколадной крошкой.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dishes_name">
-                        <p class="name">Миндальный торт</p>
-                        <p>(120/40г)</p>
-                    </div>
-
-                    <div class="dishes_footer">
-                        <p class="fl">58 грн.</p>
-                        <a class="fr button">В корзину</a>
-                    </div>
-
-                </div>
-
-                <div class="dishes_block fl">
-                    <div class="dishes_img">
-                        <img src="~/Content/img/dishes1.jpg" />
-                        <div class="dishes_blur">
-                            <div>
-                                <p>Хрустящие миндальные коржи, пропитанные сливочным кремом с сыром "Маскарпоне" и усыпанные шоколадной крошкой.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dishes_name">
-                        <p class="name">Миндальный торт</p>
-                        <p>(120/40г)</p>
-                    </div>
-
-                    <div class="dishes_footer">
-                        <p class="fl">58 грн.</p>
-                        <a class="fr button">В корзину</a>
-                    </div>
-
-                </div>
-
-                <div class="dishes_block fl">
-                    <div class="dishes_img">
-                        <img src="~/Content/img/dishes1.jpg" />
-                        <div class="dishes_blur">
-                            <div>
-                                <p>Хрустящие миндальные коржи, пропитанные сливочным кремом с сыром "Маскарпоне" и усыпанные шоколадной крошкой.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dishes_name">
-                        <p class="name">Миндальный торт</p>
-                        <p>(120/40г)</p>
-                    </div>
-
-                    <div class="dishes_footer">
-                        <p class="fl">58 грн.</p>
-                        <a class="fr button">В корзину</a>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="clear"></div>
-
+            }
+            }
+            else
+            {
+                <div><p>В ресторане нет блюд</p></div>
+            }
             <div class="separator"></div>
         </div>
 
